@@ -3,3 +3,32 @@
   This is my epic project!
   <button mat-button routerLink="/asd" color="primary">Broken Link</button>
 </div>
+
+<hr />
+<div class="grid-container">
+  <h1 class="mat-h1 cep-title">Verify your cep here</h1>
+
+  <div class="cep-container">
+    <input mat-input type="text" [(ngModel)]="cep" />
+    <button mat-button color="primary" (click)="consultar()">
+      Consultar CEP
+    </button>
+    <div class="cep-result">
+      <!-- <span>{{ dadosCep | json }}</span> -->
+      <div *ngIf="dadosCep">
+        <h5>
+          Logradouro: <strong>{{ dadosCep.logradouro }}</strong>
+        </h5>
+        <h5>
+          Bairro: <strong>{{ dadosCep.bairro }}</strong>
+        </h5>
+        <h5>
+          Cidade: <strong>{{ dadosCep.localidade }}</strong>
+        </h5>
+        <h5>
+          Estado: <strong>{{ dadosCep.uf }}</strong>
+        </h5>
+      </div>
+    </div>
+  </div>
+</div>
