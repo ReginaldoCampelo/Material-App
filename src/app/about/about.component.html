@@ -6,15 +6,14 @@
 
 <hr />
 <div class="grid-container">
-  <h1 class="mat-h1 cep-title">Verify your cep here</h1>
+  <h1 class="mat-h1 cep-title">Check your zip code</h1>
 
   <div class="cep-container">
-    <input mat-input type="text" [(ngModel)]="cep" />
+    <input type="text" [(ngModel)]="cep" (ngModelChange)="formatarCep()" maxlength="8" />
     <button mat-button color="primary" (click)="consultar()">
       Consultar CEP
     </button>
     <div class="cep-result">
-      <!-- <span>{{ dadosCep | json }}</span> -->
       <div *ngIf="dadosCep">
         <h5>
           Logradouro: <strong>{{ dadosCep.logradouro }}</strong>

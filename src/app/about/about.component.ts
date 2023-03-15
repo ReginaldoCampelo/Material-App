@@ -16,11 +16,17 @@ export class AboutComponent implements OnInit {
   }
 
   consultar() {
-    this.cepService.consultarCep(this.cep)
+    const cepSemMascara = this.cep.replace('-', '');
+    this.cepService.consultarCep(cepSemMascara)
       .subscribe((dados) => {
         this.dadosCep = dados;
-        console.log(this.dadosCep.logradouro);
       });
   }
 
+  formatarCep() {
+    this.cep = this.cep.replace(/\D/g, '');
+    if (this.cep.length === 8) {
+      this.cep = this.cep.replace(/(\d{5})(\d{3})/, '$1-$2');
+    }
+  }
 }
