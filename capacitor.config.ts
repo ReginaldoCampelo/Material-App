@@ -5,10 +5,11 @@ const config: CapacitorConfig = {
   appName: 'material-app',
   webDir: 'dist/material-app',
   bundledWebRuntime: false,
-  server: {
-    url: 'http://192.168.1.7:4200/',
-    cleartext: true,
-  },
+  // use the following to test on a local server
+  // server: {
+  //   url: 'http://192.168.1.7:4200/',
+  //   cleartext: true,
+  // },
 };
 
 export default config;
